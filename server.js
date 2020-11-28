@@ -11,8 +11,10 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const URI = process.env.ATLAS_URI;
-mongoose.connect(URI, {
+const db = require('./connect').mongoURI;
+
+// const URI = process.env.ATLAS_URI;
+mongoose.connect(db, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
